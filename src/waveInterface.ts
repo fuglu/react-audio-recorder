@@ -1,5 +1,4 @@
 import encodeWAV from './waveEncoder';
-import getUserMedia from './getUserMedia';
 import AudioContext from './AudioContext';
 
 export default class WAVEInterface {
@@ -20,7 +19,7 @@ export default class WAVEInterface {
 
   startRecording() {
     return new Promise((resolve, reject) => {
-      getUserMedia({ audio: true }, (stream) => {
+      navigator.getUserMedia({ audio: true }, (stream) => {
         const { audioContext } = WAVEInterface;
         const recGainNode = audioContext.createGain();
         const recSourceNode = audioContext.createMediaStreamSource(stream);

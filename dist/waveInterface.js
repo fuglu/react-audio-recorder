@@ -1,5 +1,4 @@
 import encodeWAV from './waveEncoder';
-import getUserMedia from './getUserMedia';
 import AudioContext from './AudioContext';
 var WAVEInterface = /** @class */ (function () {
     function WAVEInterface() {
@@ -25,7 +24,7 @@ var WAVEInterface = /** @class */ (function () {
     WAVEInterface.prototype.startRecording = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            getUserMedia({ audio: true }, function (stream) {
+            navigator.getUserMedia({ audio: true }, function (stream) {
                 var audioContext = WAVEInterface.audioContext;
                 var recGainNode = audioContext.createGain();
                 var recSourceNode = audioContext.createMediaStreamSource(stream);
