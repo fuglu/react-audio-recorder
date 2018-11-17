@@ -1,4 +1,4 @@
-export default navigator.mediaDevices ?
+export default navigator.getUserMedia ? navigator.getUserMedia : navigator.mediaDevices ?
   navigator.mediaDevices.getUserMedia :
   (
     navigator.getUserMedia ||
